@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:background="@drawable/main_bg"
+    android:orientation="vertical" >
+    <include layout="@layout/second_head" />
+    <ListView 
+        android:id="@+id/second_lv"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="10dp"
+        android:background="@drawable/main_bg"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/divider_bg"
+        android:fadingEdge="none"/>
+
+</LinearLayout>

@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/second_head" />
+	
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#eee" >
+
+        <ImageView
+            android:id="@+id/aboveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/above_icon" />
+
+        <TextView
+            android:id="@+id/versonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboveImage"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/nomalGray"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp" >
+		
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/set_item_bg" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="图片自动播放"
+                android:textColor="@color/nomalGray"
+                android:textSize="20sp" />
+
+            <ToggleButton
+                android:id="@+id/imgTogBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/switch_btn"
+                android:checked="true"
+                   android:text=""
+                android:textOff=""
+                android:textOn=""/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/set_item_bg" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="是否加载网络图片"
+                android:textColor="@color/nomalGray"
+                android:textSize="20sp" />
+
+            <ToggleButton
+                android:id="@+id/netTogBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/switch_btn"
+                android:checked="true"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/set_item_bg" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/item_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="主题风格"
+                android:textColor="@color/nomalGray"
+                android:textSize="20sp" />
+
+            <!--
+                 <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:background="@drawable/actionbar_bg"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:spinnerMode="dropdown"
+                android:entries="@array/spinTheme"
+                 />
+            -->
+
+            <LinearLayout
+                android:id="@+id/spinnerid"
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                     />
+
+                <ImageView
+                    android:id="@+id/arrowbut"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="2"
+                    android:src="@drawable/exhibition_arrow" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/update"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/set_item_bg"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:paddingLeft="5dp"
+            android:text="检查新版本"
+            android:textColor="@color/nomalGray"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>
