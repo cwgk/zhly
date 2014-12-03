@@ -57,17 +57,14 @@ public class MyNetworkImageView extends ImageView {
 
     public MyNetworkImageView(Context context) {
         this(context, null);
-        Log.i("Tag", "1");
     }
 
     public MyNetworkImageView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-        Log.i("Tag", "2");
     }
 
     public MyNetworkImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        Log.i("Tag", "3");
     }
 
     /**
@@ -174,10 +171,8 @@ public class MyNetworkImageView extends ImageView {
                         }
 
                         if (response.getBitmap() != null) {
-                        	//MyImageProgressBar.isVisible = true;
                             setImageBitmap(response.getBitmap());
                         } else if (mDefaultImageId != 0) {
-                        	//MyImageProgressBar.isVisible = false;
                             setImageResource(mDefaultImageId);
                         }
                     }
@@ -189,7 +184,6 @@ public class MyNetworkImageView extends ImageView {
 
     private void setDefaultImageOrNull() {
         if(mDefaultImageId != 0) {
-        	//MyImageProgressBar.isVisible = false;
             setImageResource(mDefaultImageId);
         }
         else {

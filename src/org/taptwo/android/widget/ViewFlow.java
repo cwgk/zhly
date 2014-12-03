@@ -3,21 +3,14 @@ package org.taptwo.android.widget;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-
 import com.cwgk.zhly.R;
-
-
-
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
-import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -29,14 +22,6 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Scroller;
 
-/**
- * A horizontally scrollable {@link ViewGroup} with items populated from an
- * {@link Adapter}. The ViewFlow uses a buffer to store loaded {@link View}s in.
- * The default size of the buffer is 3 elements on both sides of the currently
- * visible {@link View}, making up a total buffer size of 3 * 2 + 1 = 7. The
- * buffer size can be changed using the {@code sidebuffer} xml attribute.
- * 
- */
 public class ViewFlow extends AdapterView<Adapter> {
 
 	private static final int SNAP_VELOCITY = 1000;
@@ -135,12 +120,6 @@ public class ViewFlow extends AdapterView<Adapter> {
 						Message message = handler.obtainMessage(VIEW_FLOW_ANIMA);
 						sendMessageDelayed(message, timeSpan);		
 						break;
-//					case FLOW_INDICATOR_ANIMA:
-//						int h=msg.getData().getInt("ScrollX");
-////						int hPerceived = h + (mCurrentAdapterIndex - mCurrentBufferIndex)
-////								* getWidth();
-//						mIndicator.onScrolled(h, 0, 0, 0);
-//						break;
 				}
 			}
 		};

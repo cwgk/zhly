@@ -2,6 +2,7 @@ package com.cwgk.zhly;
 
 
 import java.util.List;
+import net.youmi.android.AdManager;
 import com.cwgk.adapter.MyPagerAdapter;
 import com.cwgk.dao.FirstItem;
 import com.cwgk.dao.ListViewDao;
@@ -13,7 +14,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
@@ -38,8 +38,7 @@ public class MainActivity extends FragmentActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		Log.i("Tag", "dm="+dm);
-		
+		AdManager.getInstance(this).init("062d01c2314336fe", "49be041a8c9ef4d0", false);
 		dm = getResources().getDisplayMetrics();
 		firstItemDao = new ListViewDao(this);
 		List<FirstItem> newsItems = firstItemDao.firstList();
@@ -47,7 +46,6 @@ public class MainActivity extends FragmentActivity
 		ViewPager pager = (ViewPager) findViewById(R.id.id_pager);
 		tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
 		setBtn = (ImageButton)findViewById(R.id.setBtn);
-		
 		colorSwitch = SettingUtils.getThemeColor(MyApplication.getContext(), SettingUtils.THEME, 0);
 		
 		switch(colorSwitch){

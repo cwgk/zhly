@@ -5,8 +5,6 @@ import java.util.List;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
-
 import com.cwgk.dao.FirstItem;
 import com.cwgk.fragment.EighthFragment;
 import com.cwgk.fragment.FifthFragment;
@@ -17,7 +15,6 @@ import com.cwgk.fragment.SecondFragment;
 import com.cwgk.fragment.SeventhFragment;
 import com.cwgk.fragment.SixthFragment;
 import com.cwgk.fragment.ThirdFragment;
-import com.zhy.bean.NewsItem;
 
 public class MyPagerAdapter extends FragmentPagerAdapter {
 	private FirstFragment firstFragment;
@@ -37,20 +34,14 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 		this.mDatas = datas;
 	}
 
-	//private final String[] titles = { "聊天", "发现", "通讯录" };
-	//private final String[] titles = {  "大楚网", "新闻", "数码", "房产", "视频" };
-	private final String[] titles = {  "I在武汉", "住在武汉", "游在武汉", "娱在武汉 ", "购在武汉","行在武汉 ","宅在武汉"};
 
 	@Override
 	public CharSequence getPageTitle(int position) {
-		//return titles[position];
-		Log.i("Tag", "mDatas.get(position).getTitle()="+mDatas.get(position).getTitle());
 		return mDatas.get(position).getTitle();
 	}
 
 	@Override
 	public int getCount() {
-		Log.i("Tag", "mDatas.size()="+mDatas.size());
 		return mDatas.size();
 	}
 	

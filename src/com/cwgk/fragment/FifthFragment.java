@@ -1,36 +1,20 @@
 package com.cwgk.fragment;
 
 import java.util.List;
-
 import com.cwgk.adapter.SecondItemAdapter;
 import com.cwgk.dao.ListViewDao;
 import com.cwgk.dao.SecondItem;
 import com.cwgk.zhly.R;
 import com.cwgk.zhly.SecondActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.FrameLayout.LayoutParams;
-
-/**
- * 聊天Fragment的界面
- * 
- * http://blog.csdn.net/guolin_blog/article/details/26365683
- * 
- * @author guolin
- */
 public class FifthFragment extends Fragment {
 	private View messageLayout;
 	private ListView mListView;

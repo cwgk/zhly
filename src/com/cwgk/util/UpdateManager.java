@@ -5,33 +5,20 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
-import java.util.Map;
-
-
-
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cwgk.zhly.R;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.AlertDialog.Builder;
@@ -51,11 +38,6 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-/**
- *@author coolszy
- *@date 2012-4-26
- *@blog http://blog.92coding.com
- */
 
 public class UpdateManager
 {
@@ -113,50 +95,8 @@ public class UpdateManager
 	public void checkUpdate()
 	{
 		getStringVersion();
-		/*if (isUpdate())
-		{
-			// 显示提示对话框
-			showNoticeDialog();
-		} else
-		{
-			Toast.makeText(mContext, R.string.soft_update_no, Toast.LENGTH_LONG).show();
-		}*/
 	}
 
-	/**
-	 * 检查软件是否有更新版本
-	 * 
-	 * @return
-	 */
-	private boolean isUpdate()
-	{
-		// 获取当前软件版本
-		int versionCode = getVersionCode(mContext);
-		// 把version.xml放到网络上，然后获取文件信息
-		//getXmlVersion();
-		
-		InputStream inStream = ParseXmlService.class.getClassLoader().getResourceAsStream("version.xml");
-		// 解析XML文件。 由于XML文件比较小，因此使用DOM方式进行解析
-		ParseXmlService service = new ParseXmlService();
-		try
-		{
-			mHashMap = service.parseXml(inStream);
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		if (null != mHashMap)
-		{
-			//int serviceCode = Integer.valueOf(mHashMap.get("version"));
-			// 版本判断
-			Log.i("Tag", "currrentVersion="+currrentVersion);
-			if (currrentVersion > versionCode)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
 	public void getStringVersion(){
 		final int versionCode = getVersionCode(mContext);
 		StringRequest stringRequest = new StringRequest("http://www.iwuhan12301.com/apk/version.xml",  
@@ -219,55 +159,7 @@ public class UpdateManager
 		
 		  
 	}
-	private void getXmlVersion() {
-		//http://www.iwuhan12301.com/apk/version.xml
-		XMLRequest xmlRequest = new XMLRequest( "http://9.8.12.102:8088/UpLoad/version.xml", new Response.Listener<XmlPullParser>() {
-			
-			@Override
-			public void onResponse(XmlPullParser response) {
-				Log.i("Tag", "response="+response.toString());
-				
-				int eventType;
-				try {
-					eventType = response.getEventType();
-					Log.i("Tag", "response.next()="+response.next());
-					 while (eventType != XmlPullParser.END_DOCUMENT) {  
-						 Log.d("Tag", "eventType =" + eventType + "XmlPullParser.START_TAG="+XmlPullParser.START_TAG);  
-		                    switch (eventType) {  
-		                    case XmlPullParser.START_TAG:  
-		                        String nodeName = response.getName();  
-		                        Log.i("Tag", "nodeName =" + nodeName);  
-		                        if ("version".equals(nodeName)) {  
-		                        	int version = response.next(); 
-		                        	Log.i("Tag", "version="+version);
-		                        }else if("name".equals(nodeName)){
-		                        	
-		                        }else if("url".equals(nodeName)){
-		                        	
-		                        }
-		                        break;  
-		                    }  
-		                    eventType = response.next();  
-		                	Log.i("Tag", "response.next()="+response.next());
-		                }  
-				} catch (XmlPullParserException e) { 
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}  
-				
-			}
-		}, new Response.ErrorListener() {
-
-			@Override
-			public void onErrorResponse(VolleyError error) {
-				  Toast.makeText(mContext, "网络状况不佳", Toast.LENGTH_LONG).show();
-			}
-		}) ;
-		mQueue.add(xmlRequest);  
-		
-	}
-
+	
 	/**
 	 * 获取软件版本号
 	 * 
@@ -363,13 +255,6 @@ public class UpdateManager
 		new downloadApkThread().start();
 	}
 
-	/**
-	 * 下载文件线程
-	 * 
-	 * @author coolszy
-	 *@date 2012-4-26
-	 *@blog http://blog.92coding.com
-	 */
 	private class downloadApkThread extends Thread
 	{
 		@Override

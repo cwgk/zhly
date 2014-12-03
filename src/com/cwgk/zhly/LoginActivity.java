@@ -1,22 +1,17 @@
 package com.cwgk.zhly;
 
-import java.io.OutputStream;
-
 import com.cwgk.util.DBManager;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class LoginActivity extends Activity {
 
 	private SharedPreferences preferences;
-	private ImageView iv;
 	private LinearLayout ll;
 
 	@Override
@@ -24,7 +19,6 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_layout);
 		ll = (LinearLayout)findViewById(R.id.loginLl);
-		//iv = (ImageView)findViewById(R.id.loginImage);
 		preferences = getSharedPreferences("count", Context.MODE_PRIVATE);
 		int count = preferences.getInt("count", 0);
 		if (count == 0) {

@@ -18,10 +18,6 @@ public class ThirdItemAdapter extends BaseAdapter
 	private LayoutInflater mInflater;
 	private List<ThirdItem> mDatas;
 
-	/**
-	 * ʹ����github��Դ��ImageLoad��������ݼ���
-	 */
-
 	public ThirdItemAdapter(Context context, List<ThirdItem> datas)
 	{
 		this.mDatas = datas;
@@ -81,9 +77,7 @@ public class ThirdItemAdapter extends BaseAdapter
 
 	private final class ViewHolder
 	{
-		//TextView mTitle;
 		TextView mContent;
-		//TextView mDate;
 	}
 
 }

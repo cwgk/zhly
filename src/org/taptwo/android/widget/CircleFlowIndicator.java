@@ -1,24 +1,4 @@
-/*
-  * Copyright (C) 2011 Patrik �kerfeldt
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package org.taptwo.android.widget;
-
-
-
-
-
 
 import com.cwgk.zhly.R;
 
@@ -35,29 +15,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
 
-/**
- * A FlowIndicator which draws circles (one for each view). 
- * <br/>
- * Availables attributes are:<br/>
- * <ul>
- * activeColor: Define the color used to draw the active circle (default to white)
- * </ul>
- * <ul>
- * inactiveColor: Define the color used to draw the inactive circles (default to 0x44FFFFFF)
- * </ul>
- * <ul>
- * inactiveType: Define how to draw the inactive circles, either stroke or fill (default to stroke)
- * </ul>
- * <ul>
- * activeType: Define how to draw the active circle, either stroke or fill (default to fill)
- * </ul>
- * <ul>
- * fadeOut: Define the time (in ms) until the indicator will fade out (default to 0 = never fade out)
- * </ul>
- * <ul>
- * radius: Define the circle radius (default to 4.0)
- * </ul>
- */
 public class CircleFlowIndicator extends View implements FlowIndicator,
 		AnimationListener {
 	private static final int STYLE_STROKE = 0;

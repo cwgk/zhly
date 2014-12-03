@@ -4,15 +4,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 public class SettingUtils {
 	public static final String AUTO_PLAY = "auto_play";	// 自动播放
 	public static final String IS_LOAD_NET = "is_load_net";	// 加载网络资源
-	public static final String POSITION = "position";	// 加载网络资源
-	public static final String THEME = "theme";	// 加载网络资源
-	public static final String VERSION_NAME = "version_name";	// 加载网络资源
-	
+	public static final String POSITION = "position";	
+	public static final String THEME = "theme";	
+	public static final String VERSION_NAME = "version_name";	
 	
 	/**
 	 * 获取配置

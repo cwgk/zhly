@@ -1,39 +1,25 @@
 package com.cwgk.zhly;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import com.cwgk.adapter.MyspinnerAdapter;
 import com.cwgk.adapter.ToggleListener;
 import com.cwgk.util.MyApplication;
 import com.cwgk.util.SettingUtils;
 import com.cwgk.util.UpdateManager;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
-import android.widget.ImageSwitcher;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import android.widget.SeekBar;
-import android.widget.Spinner;
-import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -41,11 +27,9 @@ public class SettingActivity extends Activity {
 	private ImageButton returnBtn;
 	private TextView title;
 	private ToggleButton imgSwitch, netSwitch;
-	private Spinner mSpinner;
 	private ArrayList<String> list = new ArrayList<String>();
 	private MyspinnerAdapter adapter;
 	private LinearLayout spinnerlayout;
-	private View go_icon;
 	private LinearLayout layout;
 	private ListView listView;
 	private PopupWindow popupWindow;
@@ -118,22 +102,9 @@ public class SettingActivity extends Activity {
 			public void onClick(View v) {
 
 				showWindow(v);
-				Log.i("Tag", "go");
 
 			}
 		});
-		/*
-		 * imgSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-		 * 
-		 * @Override public void onCheckedChanged(CompoundButton buttonView,
-		 * boolean isChecked) { if (isChecked) { ContentActivity.isAutoFlow =
-		 * true; } else { ContentActivity.isAutoFlow = false; } } });
-		 * netSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-		 * 
-		 * @Override public void onCheckedChanged(CompoundButton buttonView,
-		 * boolean isChecked) { if (isChecked) { ContentActivity.isLoadNetImage
-		 * = true; } else { ContentActivity.isLoadNetImage = false; } } });
-		 */
 	}
 
 	private void setNetSwitch() {
@@ -158,9 +129,7 @@ public class SettingActivity extends Activity {
 		netSwitch = (ToggleButton) findViewById(R.id.netTogBtn);
 		textView = (TextView) findViewById(R.id.text);
 		versionName = (TextView) findViewById(R.id.versonName);
-		// mSpinner = (Spinner) findViewById(R.id.spinner);
 		spinnerlayout = (LinearLayout) findViewById(R.id.spinnerid);
-		go_icon = findViewById(R.id.arrowbut);
 		update = (TextView) findViewById(R.id.update);
 		versionName.setText(SettingUtils.getVersionName(MyApplication.getContext(), SettingUtils.VERSION_NAME, "智慧旅游1.0"));
 	}
@@ -171,13 +140,6 @@ public class SettingActivity extends Activity {
 				imgSwitch));
 		netSwitch.setOnCheckedChangeListener(new ToggleListener(this, "加载网络资源",
 				netSwitch));
-
-		/*
-		 * toggleButton_StartOnBoot
-		 * .setOnClickListener(clickToToggleAutostartListener);
-		 * layout_StartOnBoot
-		 * .setOnClickListener(clickToToggleAutostartListener);
-		 */
 	}
 
 	public void showWindow(View v) {
@@ -210,10 +172,7 @@ public class SettingActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				// TODO Auto-generated method stub
 				textView.setText(list.get(arg2));// 设置所选的item作为下拉框的标题
-				// 弹框消失
-				Log.i("Tag", "arg2="+arg2);
 				SettingUtils.setThemeColor(MyApplication.getContext(), SettingUtils.THEME, arg2);
 				popupWindow.dismiss();
 				popupWindow = null;

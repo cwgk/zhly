@@ -59,15 +59,6 @@ public class SecondItemAdapter extends BaseAdapter {
 		this.mDatas = datas;
 		this.menuId = menuId;
 		mInflater = LayoutInflater.from(context);
-		/*
-		 * options = new
-		 * DisplayImageOptions.Builder().showStubImage(R.drawable.images)
-		 * .showImageForEmptyUri
-		 * (R.drawable.images).showImageOnFail(R.drawable.images
-		 * ).cacheInMemory() .cacheOnDisc().displayer(new
-		 * RoundedBitmapDisplayer(20)).displayer(new FadeInBitmapDisplayer(300))
-		 * .build();
-		 */
 	}
 
 	public void addAll(List<SecondItem> mDatas) {
@@ -111,14 +102,10 @@ public class SecondItemAdapter extends BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		SecondItem secondItem = mDatas.get(position);
-		// holder.mTitle.setText(DataUtil.ToDBC(newsItem.getTitle()));
 		holder.mContent.setText(secondItem.getTitle());
 		holder.mImg.setImageResource(viewImages[menuId][position]);
-		// holder.mDate.setText(newsItem.getDate());
 		if (secondItem.getImgLink() != null) {
 			holder.mImg.setVisibility(View.VISIBLE);
-			// imageLoader.displayImage(secondItem.getImgLink(), holder.mImg,
-			// options);
 		} else {
 			holder.mImg.setVisibility(View.GONE);
 		}
@@ -127,10 +114,8 @@ public class SecondItemAdapter extends BaseAdapter {
 	}
 
 	private final class ViewHolder {
-		// TextView mTitle;
 		TextView mContent;
 		ImageView mImg;
-		// TextView mDate;
 	}
 
 }

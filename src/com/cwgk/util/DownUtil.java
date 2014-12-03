@@ -5,8 +5,6 @@ import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import android.net.Uri;
 import android.util.Log;
 
 public class DownUtil
